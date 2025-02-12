@@ -1,0 +1,241 @@
+.carousel-section {
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.3);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+.calendar-section {
+    padding: 120px 0 60px;
+    background-color: var(--light-color);
+}
+
+.calendar-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.calendar-header button:hover {
+    background-color: var(--light-color);
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background-color: var(--light-color);
+}
+
+.calendar-day.available {
+    background-color: var(--primary-color);
+}
+
+.calendar-day.booked {
+    background-color: var(--accent-color);
+    color: white;
+    cursor: not-allowed;
+}
+
+.calendar-day.other-month {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.calendar-day.today {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #0056b3;
+    font-weight: bold;
+}
+
+.calendar-day.today.booked {
+    background-color: var(--accent-color);
+    border: 2px solid #0056b3;
+}
+
+.calendar-day.past-date {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.calendar-day.past-date:hover {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.room-availability {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.room-types {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.room-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.room-type span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.room-type .available {
+    border: 10px solid var(--primary-color);
+}
+
+.room-type .booked {
+    background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 1rem;
+    }
+
+    .weekdays div, .calendar-day {
+        font-size: 0.9rem;
+    }
+
+    .room-types {
+        flex-direction: column;
+        gap: 1rem;
+    }
+} 

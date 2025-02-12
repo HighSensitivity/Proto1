@@ -1,0 +1,185 @@
+.booking-section {
+    padding: 120px 0 60px;
+    background-color: var(--light-color);
+}
+
+.booking-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-color);
+}
+
+.booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Date Picker Styles */
+.date-picker-container {
+    position: relative;
+}
+
+.mini-calendar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 100;
+    width: 300px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.mini-calendar.active {
+    display: block;
+}
+
+.mini-calendar .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.mini-calendar .calendar-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--primary-color);
+}
+
+.mini-calendar .calendar-header h4 {
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.mini-calendar .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mini-calendar .weekdays div {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.mini-calendar .calendar-day {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.mini-calendar .calendar-day:hover {
+    background-color: var(--light-color);
+}
+
+.mini-calendar .calendar-day.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.mini-calendar .calendar-day.empty {
+    visibility: hidden;
+}
+
+.mini-calendar .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .booking-form {
+        padding: 1.5rem;
+    }
+
+    .mini-calendar {
+        width: 280px;
+    }
+}
+
+.calendar-day.today {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #0056b3;
+    font-weight: bold;
+}
+
+.calendar-day.today.booked {
+    background-color: var(--accent-color);
+    border: 2px solid #0056b3;
+}
+
+.calendar-day.past-date {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.calendar-day.past-date:hover {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+} 

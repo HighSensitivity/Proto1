@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Guest House</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">LuxStay</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="calendar.html">Book Now</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+        </ul>
+    </nav>
+
+    <!-- Image Carousel Section -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="images/1.jpg" alt="Luxury Suite Master Bedroom" class="carousel-image">
+                <div class="carousel-caption">
+                    <h2>Luxury Suite Master Bedroom</h2>
+                    <p>Experience ultimate comfort in our spacious master suite</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/2.jpg" alt="Ocean View Balcony" class="carousel-image">
+                <div class="carousel-caption">
+                    <h2>Ocean View Balcony</h2>
+                    <p>Wake up to breathtaking ocean views</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/3.jpg" alt="Modern Living Area" class="carousel-image">
+                <div class="carousel-caption">
+                    <h2>Modern Living Area</h2>
+                    <p>Relax in our contemporary living spaces</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/4.jpg" alt="Gourmet Kitchen" class="carousel-image">
+                <div class="carousel-caption">
+                    <h2>Gourmet Kitchen</h2>
+                    <p>Fully equipped kitchen for your culinary adventures</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/5.jpg" alt="Spa Bathroom" class="carousel-image">
+                <div class="carousel-caption">
+                    <h2>Spa Bathroom</h2>
+                    <p>Luxurious bathrooms with premium amenities</p>
+                </div>
+            </div>
+            <button class="carousel-btn prev" id="prevSlide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextSlide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero scroll-animation" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/8.jpg');">
+        <div class="hero-content">
+            <h1>Welcome to LuxStay</h1>
+            <p>Experience luxury and comfort in our premium guest houses</p>
+            <a href="calendar.html" class="cta-button">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview scroll-animation">
+        <div class="container">
+            <h2>Your Perfect Stay Awaits</h2>
+            <p>Discover our carefully curated collection of premium guest houses, designed to provide you with an unforgettable experience. Each room is thoughtfully furnished with modern amenities while maintaining the charm of traditional hospitality.</p>
+        </div>
+    </section>
+
+    <!-- Featured Rooms Section -->
+    <section class="featured-rooms">
+        <div class="container">
+            <div class="room-showcase scroll-animation">
+                <div class="room-info">
+                    <h3>Luxury Suite</h3>
+                    <p>Immerse yourself in pure luxury with our premium suite, featuring panoramic views and exclusive amenities.</p>
+                    <ul>
+                        <li>King-size bed</li>
+                        <li>Private balcony</li>
+                        <li>En-suite bathroom</li>
+                    </ul>
+                </div>
+                <div class="room-image">
+                    <img src="images/6.jpg" alt="Luxury Suite">
+                </div>
+            </div>
+            
+            <div class="room-showcase reverse scroll-animation">
+                <div class="room-image">
+                    <img src="images/7.jpg" alt="Deluxe Room">
+                </div>
+                <div class="room-info">
+                    <h3>Deluxe Room</h3>
+                    <p>Experience comfort and style in our deluxe rooms, perfect for both business and leisure travelers.</p>
+                    <ul>
+                        <li>Queen-size bed</li>
+                        <li>Work desk</li>
+                        <li>Smart TV</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer scroll-animation">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="calendar.html">Book Now</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@luxstay.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Luxury Lane, Resort City</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuxStay. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/scroll-animations.js"></script>
+</body>
+</html>

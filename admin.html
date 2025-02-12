@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LuxStay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Add this right after the opening body tag -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-hotel"></i>
+            <h2>LuxStay</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="active">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#bookings">
+                <i class="fas fa-calendar-check"></i>
+                <span>Bookings</span>
+            </a>
+            <a href="#calendar">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Calendar</span>
+            </a>
+            <a href="#settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="#" id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Top Bar -->
+        <header class="dashboard-header">
+            <div class="header-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search bookings...">
+            </div>
+            <div class="header-profile">
+                <div class="notification-badge">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">0</span>
+                    <div class="notification-dropdown">
+                        <!-- Notifications will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <span>Admin User</span>
+                    <img src="images/admin-avatar.jpg" alt="Admin" class="avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Add this inside main content, before the bookings section -->
+        <section id="dashboard-view" class="dashboard-view">
+            <div class="section-header">
+                <h2>Dashboard Overview</h2>
+                <div class="date-filter">
+                    <select id="periodFilter">
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month" selected>This Month</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e9f5ff;">
+                        <i class="fas fa-calendar-check" style="color: #0077ff;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Bookings</h3>
+                        <p class="stat-number">0</p>
+                        <span class="stat-change positive">+0% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #fef4e6;">
+                        <i class="fas fa-bed" style="color: #ff9500;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Bookings</h3>
+                        <p class="stat-number">0</p>
+                        <span class="stat-change">Current</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e6f8f2;">
+                        <i class="fas fa-coins" style="color: #00ba88;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Revenue</h3>
+                        <p class="stat-number">$0</p>
+                        <span class="stat-change positive">+0% this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #ffe9e9;">
+                        <i class="fas fa-user-clock" style="color: #ff4949;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Pending</h3>
+                        <p class="stat-number">0</p>
+                        <span class="stat-change">Awaiting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Bookings Section -->
+        <section class="bookings-section">
+            <div class="section-header">
+                <h2>Recent Bookings</h2>
+                <div class="header-actions">
+                    <div class="filter-group">
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" id="dateFilter">
+                    </div>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <div class="bookings-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="bookingId">
+                                Booking ID
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th class="sortable" data-sort="guest">
+                                Guest
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th class="sortable" data-sort="checkIn">
+                                Check In
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th class="sortable" data-sort="checkOut">
+                                Check Out
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th class="sortable" data-sort="status">
+                                Status
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th class="sortable" data-sort="amount">
+                                Amount
+                                <span class="sort-icon">
+                                    <i class="fas fa-sort"></i>
+                                </span>
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody">
+                        <!-- Bookings will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Add this inside the dashboard-content div, after the bookings-section -->
+        <section class="calendar-section" id="calendar-view" style="display: none;">
+            <div class="section-header">
+                <h2>Booking Calendar</h2>
+                <div class="calendar-nav">
+                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="currentMonth"></h3>
+                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="calendar-container">
+                <div class="weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-grid" id="calendarDays"></div>
+            </div>
+        </section>
+
+        <!-- Add this after the calendar section -->
+        <section id="settings-view" class="settings-view" style="display: none;">
+            <div class="section-header">
+                <h2>Settings</h2>
+            </div>
+
+            <div class="settings-container">
+                <!-- Profile Settings -->
+                <div class="settings-card">
+                    <h3>Profile Settings</h3>
+                    <form id="profileForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Admin Name</label>
+                            <input type="text" id="adminName" value="Admin User">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="adminEmail" value="admin@luxstay.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="adminPhone" value="+1 (555) 123-4567">
+                        </div>
+                        <button type="submit" class="save-btn">Save Profile</button>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="settings-card">
+                    <h3>Security</h3>
+                    <form id="securityForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" id="currentPassword">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="newPassword">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm New Password</label>
+                            <input type="password" id="confirmPassword">
+                        </div>
+                        <button type="submit" class="save-btn">Change Password</button>
+                    </form>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="settings-card">
+                    <h3>Notifications</h3>
+                    <div class="settings-form">
+                        <div class="toggle-group">
+                            <label>Email Notifications</label>
+                            <label class="switch">
+                                <input type="checkbox" id="emailNotif" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-group">
+                            <label>New Booking Alerts</label>
+                            <label class="switch">
+                                <input type="checkbox" id="bookingNotif" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-group">
+                            <label>System Updates</label>
+                            <label class="switch">
+                                <input type="checkbox" id="systemNotif">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html> 
